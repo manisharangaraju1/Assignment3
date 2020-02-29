@@ -1,0 +1,25 @@
+enum Category {
+    Shirts
+    Jeans
+    Jackets
+    Sweaters
+    Accessories
+}
+
+type Product {
+    id: Int!
+    Category: Category!
+    Name: String!
+    Price: Float
+    Image: String
+}
+
+##### Top level declarations
+type Query {
+ about: String!
+ productList: [Product!]!
+}
+
+type Mutation {
+    setAboutMessage(message: String!): String
+}

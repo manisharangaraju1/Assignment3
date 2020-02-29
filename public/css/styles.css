@@ -1,0 +1,7 @@
+table.bordered-table th, td {border: 1px solid silver; padding: 4px;}
+table.bordered-table {border-collapse: collapse};
+
+.url{
+    text-decoration: underline;
+    color: blue;
+}
