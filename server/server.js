@@ -3,7 +3,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 
 
-let aboutMessage = "Issue Tracker API v1.0";
+
 const productsDB = [
 {
     id : 1,
@@ -31,11 +31,10 @@ const productsDB = [
 
 const resolvers = {
     Query: {
-        about: () => aboutMessage,
         productList: productList,
     },
     Mutation: {
-        setAboutMessage,
+        productAdd,
     },
 };
 
@@ -43,8 +42,10 @@ function productList() {
     return productsDB;
 }
 
-function setAboutMessage(_, {message}) {
-    return aboutMessage = message;
+function productAdd(_, {product}) {
+    product.id = productsDB.length+1;
+    productsDB.push(product);
+    return product;
 }
 
 const server = new ApolloServer({

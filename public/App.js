@@ -5,7 +5,6 @@ class ProductRow extends React.Component {
     constructor(props) {
         super(props);
         this.handleOnClick = this.handleOnClick.bind(this);
-        console.log(this.props.product.name);
     }
 
     handleOnClick(url) {
@@ -104,14 +103,13 @@ class ProductAdd extends React.Component {
         e.preventDefault();
         var form = document.forms.addProduct;
         this.props.createProduct({
-            name: form.name.value,
-            price: form.price.value.slice(1),
-            category: form.category.value,
-            image: form.image.value
+            Name: form.name.value,
+            Price: parseFloat(form.price.value.slice(1)),
+            Category: form.category.value,
+            Image: form.image.value
 
         });
         form.name.value = "";
-        console.log(form.price.defaultValue);
         form.category.value = "";
         form.price.value = form.price.defaultValue;
         form.image.value = "";
@@ -234,8 +232,18 @@ class ProductList extends React.Component {
         this.setState({ products: result.data.productList });
     }
 
-    createProduct(newProduct) {
-        this.setState({ products: newProducts });
+    async createProduct(newProduct) {
+        const query = `mutation productAdd($newProduct: productInput!) {
+            productAdd(product: $newProduct) {
+              id
+            }
+          }`;
+        const response = await fetch('/graphql', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query, variables: { newProduct } })
+        });
+        this.loadData();
     }
 
     render() {

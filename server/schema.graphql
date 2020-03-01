@@ -14,12 +14,18 @@ type Product {
     Image: String
 }
 
-##### Top level declarations
+
+input productInput {
+    Name: String!
+    Price: Float
+    Category: Category!
+    Image: String
+}
+
 type Query {
- about: String!
  productList: [Product!]!
 }
 
 type Mutation {
-    setAboutMessage(message: String!): String
+    productAdd(product : productInput) : Product!
 }
