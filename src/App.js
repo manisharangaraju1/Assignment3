@@ -19,7 +19,7 @@ class ProductRow extends React.Component{
                 <td>{this.props.product.Name}</td>
                 <td>${this.props.product.Price}</td>
                 <td>{this.props.product.Category}</td>
-                <td><div style={linkStyle}  onClick={() => {this.handleOnClick(this.props.product.image)}}> View </div>         </td>
+                <td><div style={linkStyle}  onClick={() => {this.handleOnClick(this.props.product.image)}}> View </div></td>
             </tr>
     )};
 }

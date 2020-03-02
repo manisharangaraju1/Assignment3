@@ -4,29 +4,7 @@ const { ApolloServer } = require('apollo-server-express');
 
 
 
-const productsDB = [
-{
-    id : 1,
-    Category: "Shirts",
-    Name: "Indian Terrain",
-    Price: 20,
-    Image: "url1"
-},
-{
-    id : 2,
-    Category: "Jeans",
-    Name: "Westside",
-    Price: 90,
-    Image: "url2"
-},
-{
-    id : 3,
-    Category: "Accessories",
-    Name: "Lifestyle",
-    Price: 200,
-    Image: "url3"
-}
-]
+const productsDB = []
 
 
 const resolvers = {

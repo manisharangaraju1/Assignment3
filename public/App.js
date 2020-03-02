@@ -40,8 +40,7 @@ class ProductRow extends React.Component {
                             this.handleOnClick(this.props.product.image);
                         } },
                     ' View '
-                ),
-                '         '
+                )
             )
         );
     }
