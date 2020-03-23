@@ -7,7 +7,7 @@ enum Category {
 }
 
 type Product {
-    id: Int
+    id: Int!
     Category: Category!
     Name: String!
     Price: Float
